@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:green_app/authentication.dart';
 
+import '../constants.dart';
+
 class profileScreen extends StatefulWidget {
    profileScreen({Key? key}) : super(key: key);
 
@@ -13,21 +15,29 @@ Authentication _auth = Authentication();
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
-      color: const Color(0xffC4DFCB),
-      child: Center(
-          child: TextButton.icon(
-            icon: Icon(Icons.person),
-            style: TextButton.styleFrom(
+      height: size.height,
+      width: double.infinity,
+      color: Colors.green[50],
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 300, 0, 0),
+        child: Column(
+          children: [
+            TextButton.icon(
+              icon: Icon(Icons.person),
+              style: TextButton.styleFrom(
 
-            ),
-            label: Text('Sign out'),
-            onPressed: ()async {
-              await _auth.signOut();
-            },
-          )
+              ),
+              label: Text('Sign out'),
+              onPressed: ()async {
+                await _auth.signOut();
+              },
+            )
+          ],
 
 
+        ),
       ),
     );
   }

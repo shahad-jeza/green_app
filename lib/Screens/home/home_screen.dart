@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class home_screen extends StatefulWidget {
   const home_screen({Key? key}) : super(key: key);
@@ -8,9 +11,24 @@ class home_screen extends StatefulWidget {
 }
 
 class _home_screenState extends State<home_screen> {
+  final Set<Marker> markers = new Set();
+
+  Set<Marker> getMarkers() { //markers to place on map
+
+    return markers;
+  }
+
+
+  Completer<GoogleMapController> _controller = Completer();
+
+  static final CameraPosition _initialCameraPosition = CameraPosition(
+    target: LatLng(24.7136, 46.6753),
+    zoom: 5,
+  );
 
   @override
   Widget build(BuildContext context) {
+
     Size size = MediaQuery.of(context).size;
     return Container(
       width: double.infinity,
@@ -35,13 +53,66 @@ class _home_screenState extends State<home_screen> {
                 IconButton(
                   icon: Image.asset('assets/images/plastic.png'),
                   iconSize: 117,
-                  onPressed: () {},
+                  onPressed: ()  {
+                    setState(() {
+                      markers.clear();
+                      markers.add(const Marker( //add first marker
+                        markerId: MarkerId("one"),
+                        position: LatLng(21.53971, 39.25012), //position of marker
+                        infoWindow: InfoWindow( //popup info
+                          title: 'Marker Title First ',
+                          snippet: 'My Custom Subtitle',
+                        ),
+                        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+                      ));
+
+                      markers.add(const Marker( //add second marker
+                        markerId: MarkerId("scn"),
+                        position: LatLng(21.15655166097582, 39.326038716024186), //position of marker
+                        infoWindow: InfoWindow( //popup info
+                          title: 'Marker Title Second ',
+                          snippet: 'My Custom Subtitle',
+                        ),
+                        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+                      ));
+
+                      //add more markers here
+                    });
+
+                  },
                 ),
 
                 IconButton(
                   icon: Image.asset('assets/images/paper.png'),
                   iconSize: 117,
-                  onPressed: () {},
+                  onPressed: () {
+
+                    setState(() {
+                      markers.clear();
+                      markers.add(const Marker( //add first marker
+                        markerId: MarkerId("tow"),
+                        position: LatLng(21.53971, 39.25012), //position of marker
+                        infoWindow: InfoWindow( //popup info
+                          title: 'Marker Title 2 ',
+                          snippet: 'My Custom Subtitle',
+                        ),
+                        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+                      ));
+
+                      markers.add(const Marker( //add second marker
+                        markerId: MarkerId("thrre"),
+                        position: LatLng(21.4269952, 39.7279232), //position of marker
+                        infoWindow: InfoWindow( //popup info
+                          title: 'Marker Title 3 ',
+                          snippet: 'My Custom Subtitle',
+                        ),
+                        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+                      ));
+
+                      //add more markers here
+                    });
+
+                  },
                 ),
 
                 IconButton(
@@ -82,8 +153,31 @@ class _home_screenState extends State<home_screen> {
                 fontWeight: FontWeight.bold,
               ),),
           ),
+
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50)
+            ),
+            width: 365,
+    height: 300,
+    child : GoogleMap(
+    mapType: MapType.normal,
+    initialCameraPosition: _initialCameraPosition,
+      markers: getMarkers(),
+    onMapCreated: (GoogleMapController controller) {
+    _controller.complete(controller);
+    },
+      myLocationEnabled: true,
+      myLocationButtonEnabled: true,
+
+          ),
+          ),
         ],
       ),
     );
   }
+
+
+
 }
+

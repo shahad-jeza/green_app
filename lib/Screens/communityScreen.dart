@@ -11,7 +11,7 @@ class communityScreen extends StatelessWidget {
         child: Text(
           "communityScreen",
           style: TextStyle(
-            color: Colors.green[900],
+            color: Colors.green[50],
             fontSize: 45,
             fontWeight: FontWeight.w500,
           ),
