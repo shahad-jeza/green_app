@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:green_app/Screens/home/home_screen.dart';
-import 'package:green_app/authentication.dart';
+import 'package:green_app/ui/views/home_view.dart';
 
-import '../MLScreen.dart';
-import '../communityScreen.dart';
-import '../profileScreen.dart';
+import '../views/MLScreen.dart';
+
+import '../views/communityScreen.dart';
+import '../views/profileScreen.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  Home({Key key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
   int pageIndex = 0 ;
 
   final pages = [
-    const home_screen(),
+    const HomeView(),
     const MLScreen(),
     const communityScreen(),
      profileScreen(),
@@ -30,7 +30,6 @@ class _HomeState extends State<Home> {
   }
   @override
   Widget build(BuildContext context) {
-    Authentication _auth = Authentication();
     Size size = MediaQuery.of(context).size;
 
  return Scaffold(
