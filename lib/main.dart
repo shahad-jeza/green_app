@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             textTheme: GoogleFonts.nunitoTextTheme(),
           ),
-          home: StartUpView(),
+          home: SignUpView(),
           onGenerateRoute: generateRoute,
         );
       }

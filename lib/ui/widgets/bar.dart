@@ -3,7 +3,8 @@ import 'package:green_app/ui/views/home_view.dart';
 
 import '../views/MLScreen.dart';
 
-import '../views/communityScreen.dart';
+
+import '../views/community_view.dart';
 import '../views/profileScreen.dart';
 
 class Home extends StatefulWidget {
@@ -19,7 +20,7 @@ class _HomeState extends State<Home> {
   final pages = [
     const HomeView(),
     const MLScreen(),
-    const communityScreen(),
+    const CommunityScreen(),
      profileScreen(),
   ];
 
@@ -33,6 +34,34 @@ class _HomeState extends State<Home> {
     Size size = MediaQuery.of(context).size;
 
  return Scaffold(
+   appBar: AppBar(
+     backgroundColor:  Colors.green[100],
+     leading: Padding(
+       padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+       child: Row(
+         children: [
+           Image(image: AssetImage('assets/icons/star.png' )  , width: 30, height: 30,),
+           Padding(
+             padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+             child: Text('10' , style:
+               TextStyle(
+                 color : Colors.black54,
+                 fontWeight: FontWeight.w500,
+                 fontSize: 18
+               ),),
+           )
+         ],
+       ),
+     ),
+     leadingWidth: 100,
+     actions: const [
+       Padding(
+         padding: EdgeInsets.fromLTRB(0, 0, 20, 5),
+         child: Image(image: AssetImage('assets/icons/man.png' ) , width: 40,height: 40,),
+       )
+     ],
+  
+   ),
 
    bottomNavigationBar : BottomNavigationBar(
 type: BottomNavigationBarType.fixed,

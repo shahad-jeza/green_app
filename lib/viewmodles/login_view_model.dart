@@ -19,7 +19,8 @@ class LoginViewModel extends BaseModel {
     setBusy(false);
     if (result is bool) {
       if (result) {
-        _navigationService.navigateTo(HomeViewRoute);
+          _navigationService.navigateTo(HomeViewRoute);
+
       } else {
         await _dialogService.showDialog(
           title: 'Login Failure',

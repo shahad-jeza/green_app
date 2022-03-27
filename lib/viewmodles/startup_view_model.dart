@@ -13,7 +13,8 @@ class StartUpViewModel extends BaseModel {
   Future handleStartUpLogic() async {
     var hasLoggedInUser =  _authenticationService.isUserLoggedIn();
     if (hasLoggedInUser == null) {
-      _navigationService.navigateTo(HomeViewRoute);
+        _navigationService.navigateTo(HomeViewRoute);
+
     } else {
       _navigationService.navigateTo(LoginViewRoute);
     }

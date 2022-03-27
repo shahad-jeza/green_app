@@ -31,7 +31,6 @@ class _HomeViewState extends State<HomeView> {
 
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(),
       body:
       Container(
         width: double.infinity,
@@ -40,7 +39,7 @@ class _HomeViewState extends State<HomeView> {
         child: Column(
           children: [
             const Padding(
-              padding: EdgeInsets.fromLTRB(0, 80, 20, 0),
+              padding: EdgeInsets.fromLTRB(0, 40, 20, 0),
               child: Text('what do you need to recycle ? ' ,
                 style: TextStyle(
                   fontSize: 24 ,
@@ -69,12 +68,13 @@ class _HomeViewState extends State<HomeView> {
                           icon: BitmapDescriptor.defaultMarker, //Icon for Marker
                         ));
 
-                        markers.add(const Marker( //add second marker
+                        markers.add(const Marker(//add second marker
                           markerId: MarkerId("scn"),
-                          position: LatLng(21.15655166097582, 39.326038716024186), //position of marker
+                          position: LatLng(21.15655166097582, 39.326038716024186),
+
                           infoWindow: InfoWindow( //popup info
-                            title: 'Marker Title Second ',
-                            snippet: 'My Custom Subtitle',
+                            title: 'WSCO ',
+                            snippet: '12 Ryals / killo',
                           ),
                           icon: BitmapDescriptor.defaultMarker, //Icon for Marker
                         ));

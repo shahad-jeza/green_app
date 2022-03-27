@@ -16,7 +16,7 @@ class MLScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 200,
+              height: 100,
             ),
             Image(image: AssetImage('assets/images/ml.png') , width: 250, height: 250,),
 
