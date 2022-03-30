@@ -15,6 +15,7 @@ open -a simulator
 flutter run
 
 About the machine learning 
+
 we did not add the machine learning model to our app yet , but you can take a look here 
 https://github.com/ghada233/classfication_recycling/tree/main/tenserflow-ml/recycle-classification-main
 
