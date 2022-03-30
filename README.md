@@ -14,6 +14,8 @@ open -a simulator
 
 flutter run
 
+--------------------------
+
 About the machine learning model : 
 
 we did not add the machine learning model to our app yet , but you can take a look here 
